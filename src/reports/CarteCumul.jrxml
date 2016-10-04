@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-04-25T10:07:14 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CarteCumul" pageWidth="240" pageHeight="153" orientation="Landscape" columnWidth="240" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="551dd919-45e1-4e9d-a918-41a758bc7543">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<queryString language="JSON">
+	<![CDATA[]]>
+	</queryString>
+	<field name="ID_CARTE_CUMUL" class="java.lang.String"/>
+	<field name="NO_INDIVIDU" class="java.lang.String"/>
+	<field name="TYPE_DE_CARTE" class="java.lang.String"/>
+	<field name="NOM_AFFICHAGE" class="java.lang.String"/>
+	<field name="PRENOM_AFFICHAGE" class="java.lang.String"/>
+	<field name="D_NAISSANCE" class="java.lang.String"/>
+	<field name="NUMERO_UNIQUE" class="java.lang.String"/>
+	<field name="MAIL" class="java.lang.String"/>
+	<field name="DATAS_PHOTO" class="java.lang.String"/>
+	<field name="CODE_BARRE" class="java.lang.String"/>
+	<field name="ETABLISSEMENT" class="java.lang.String"/>
+	<detail>
+		<band height="153" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="false">
+			  <reportElement x="180" y="28" width="54" height="59" uuid="76c80c5c-168f-4a45-9961-a8b98d704109">
+			    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			    <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+			  </reportElement>
+			  <imageExpression><![CDATA[$F{DATAS_PHOTO}]]></imageExpression>
+			</image>
+			<componentElement>
+				<reportElement x="23" y="117" width="153" height="27" uuid="d6f6bd51-5e86-43e7-9701-414ae4339404">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" displayStartStop="true" wideFactor="3.0">
+					<jr:codeExpression><![CDATA["*"+$F{CODE_BARRE}+"*"]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="6" width="207" height="10" uuid="052d4899-b603-4591-81a9-4f059f42a818">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TYPE_DE_CARTE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="40" width="146" height="9" uuid="a802732d-9b7d-43ed-8a17-b6f829dad6fa">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOM_AFFICHAGE}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="49" width="146" height="9" uuid="cfa30571-e0af-4750-b53f-e8324cc2a6b1">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7" isBold="true"/>
+					<paragraph lineSpacingSize="1.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRENOM_AFFICHAGE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="76" width="146" height="9" uuid="49e309f5-6248-424c-9ee6-a4a2a8003c21">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7" isBold="false"/>
+					<paragraph lineSpacingSize="1.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMERO_UNIQUE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="85" width="169" height="9" uuid="08aac6f8-c805-4943-8506-85c75f7ec919">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7" isBold="false"/>
+					<paragraph lineSpacingSize="1.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{MAIL} != null && $F{MAIL}.length() <= 45) ? ($F{MAIL}) : (null)]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="23" y="58" width="146" height="9" uuid="53e6fe88-81fd-4369-bd38-b921887e814a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Verdana" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{D_NAISSANCE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="15" y="101" width="154" height="9" uuid="2987f296-be8c-48bc-877f-081e8721837f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Verdana" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ETABLISSEMENT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

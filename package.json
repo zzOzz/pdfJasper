@@ -1,0 +1,70 @@
+{
+  "name": "pdfJasper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/pdfJasper.js",
+  "scripts": {
+    "test": "gulp",
+    "lint": "gulp lint",
+    "test-browser": "gulp test-browser",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "coverage": "gulp coverage",
+    "compile": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzOzz/izly_pdfJasper.git"
+  },
+  "keywords": [],
+  "author": "Vincent Lombard <vincent.lombard@universite-lyon.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzOzz/izly_pdfJasper/issues"
+  },
+  "homepage": "https://github.com/zzOzz/izly_pdfJasper",
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "chai": "^3.4.1",
+    "del": "^2.2.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-standard": "^1.3.2",
+    "glob": "^7.0.3",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "isparta": "^4.0.0",
+    "json-loader": "^0.5.3",
+    "jsonfile": "^2.3.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.12.9",
+    "webpack-stream": "^3.1.0"
+  },
+  "babelBoilerplateOptions": {
+    "entryFileName": "pdfJasper.js",
+    "mainVarName": "pdfJasper"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "events": "^1.1.1",
+    "glob": "^7.0.6",
+    "node-jasper": "^0.2.1",
+    "util": "^0.10.3"
+  }
+}

@@ -1,0 +1,1504 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://jasperreports.sourceforge.net/jasperreports">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JasperReports 5.6.1 - Map Component Sample</title>
+<style type="text/css">
+.title {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.toc {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.name {
+	font-family: Courier New, Courier, serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.label {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.description {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.value {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.element {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.attribute {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.code {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.copy {
+	font-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: #000000;
+}
+
+.subtitle {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: bold;
+	text-decoration: none;
+	color: inherit;
+}
+
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<a name="top"></a>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td colspan="2" align="right"><span class="element"><a href="../../JasperReports-Ultimate-Guide-3.pdf">JasperReports Ultimate Guide</a> - <a href="../../sample.reference.html">Sample Reference</a> - <a href="../../schema.reference.html">Schema Reference</a> - <a href="../../config.reference.html">Configuration Reference</a> - <a href="http://jasperreports.sourceforge.net/api/index.html">API (Javadoc)</a></span>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+<tr valign="middle">
+<td nowrap="true"><span class="title">JasperReports - Map Component Sample (version 5.6.1)</span></td><td align="right"><img src="../../resources/jasperreports.png" border="0"></td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+</table>
+<br>
+<span class="description"><span class="description">Illustrates the usage of the map component element.</span></span>
+<br>
+<br>
+<span class="element"><a href="http://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%205.6.1/jasperreports-5.6.1-project.zip/download" target="_blank">Download All Sample Source Files</a></span>
+<br>
+<span class="element"><a href="http://code.jaspersoft.com/svn/repos/jasperreports/tags/jr-5-6-1/jasperreports/demo/samples/map/" target="_blank">Browse Sample Source Files on SVN</a></span>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 20px;">
+<br>
+</td><td>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"><span class="label">Main Features in This Sample</span></td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td><span class="element"><a href="#map">Using the Built-in Map Component</a></span></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td width="80%">
+<br>
+</td><td width="20%">
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="6" align="right"><a name="map"></a><a href="#top" class="toc">top</a></td>
+</tr>
+<tr>
+<td colspan="6">
+<hr size="1">
+</td>
+</tr>
+<tr valign="top">
+<td><img src="../../resources/jr-16x16.png" border="0"></td><td colspan="4"><span class="name">Using the Built-in Map Component</span></td><td align="right"><span class="copy">Documented by 
+	<a href="mailto:shertage@users.sourceforge.net" class="copy">Sanda Zaharia</a></span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td nowrap="true"><span class="label">Description / Goal</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">
+How to render maps using the built-in map component.
+    </span></td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td colspan="1"><span class="label">Since</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">4.1.1</span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td colspan="5"><span class="description">
+<b>Map Component Overview</b>    
+
+<br>
+
+<br>
+The map component in JasperReports exposes some of the main characteristics necessary to generate the most common Google maps, but feature upgrades 
+for this component are planned for future development. The current <span class="code"><code>map</code></span> component description is found 
+in the <a href="../../components.schema.reference.html" target="_blank" class="element">components.xsd</a> schema:
+<pre>
+&lt;element name="map" substitutionGroup="jr:component"&gt;
+  &lt;complexType&gt;
+    &lt;complexContent&gt;
+      &lt;extension base="jr:componentType"&gt;
+        &lt;sequence&gt;
+          &lt;element name="latitudeExpression" minOccurs="0" maxOccurs="1"&gt;
+	        &lt;complexType mixed="true"/&gt;
+          &lt;/element&gt;
+          &lt;element name="longitudeExpression" minOccurs="0" maxOccurs="1"&gt;
+	        &lt;complexType mixed="true"/&gt;
+          &lt;/element&gt;
+          &lt;element name="addressExpression" minOccurs="0" maxOccurs="1"&gt;
+	        &lt;complexType mixed="true"/&gt;
+          &lt;/element&gt;
+          &lt;element name="zoomExpression" minOccurs="0" maxOccurs="1"&gt;
+            &lt;complexType mixed="true"/&gt;
+          &lt;/element&gt;
+          &lt;element name="languageExpression" minOccurs="0" maxOccurs="1"&gt;
+            &lt;complexType mixed="true"/&gt;
+          &lt;/element&gt;
+          &lt;choice minOccurs="0" maxOccurs="1"&gt;
+            &lt;element ref="c:markerDataset"/&gt;            
+            &lt;element ref="c:markerData"/&gt;            
+          &lt;/choice&gt;
+        &lt;/sequence&gt;
+        &lt;attribute name="evaluationTime" type="jr:basicEvaluationTime" use="optional" default="Now"/&gt;
+        &lt;attribute name="evaluationGroup" type="string" use="optional"/&gt;
+        &lt;attribute name="mapType" use="optional" default="roadmap"&gt;
+          &lt;simpleType&gt;
+            &lt;restriction base="string"&gt;
+              &lt;enumeration value="roadmap"/&gt;
+              &lt;enumeration value="satellite"/&gt;
+              &lt;enumeration value="terrain"/&gt;
+              &lt;enumeration value="hybrid"/&gt;
+            &lt;/restriction&gt;
+          &lt;/simpleType&gt;
+        &lt;/attribute&gt;
+        &lt;attribute name="mapScale" use="optional" default="1"&gt;
+          &lt;simpleType&gt;
+            &lt;restriction base="unsignedInt"&gt;
+              &lt;enumeration value="1"/&gt;
+              &lt;enumeration value="2"/&gt;
+              &lt;enumeration value="4"/&gt;
+            &lt;/restriction&gt;
+          &lt;/simpleType&gt;
+        &lt;/attribute&gt;
+        &lt;attribute name="imageType" use="optional" default="png"&gt;
+          &lt;simpleType&gt;
+            &lt;restriction base="string"&gt;
+              &lt;enumeration value="png"/&gt;
+              &lt;enumeration value="png8"/&gt;
+              &lt;enumeration value="png32"/&gt;
+              &lt;enumeration value="gif"/&gt;
+              &lt;enumeration value="jpg"/&gt;
+              &lt;enumeration value="jpg-baseline"/&gt;
+            &lt;/restriction&gt;
+          &lt;/simpleType&gt;
+        &lt;/attribute&gt;
+      &lt;/extension&gt;
+    &lt;/complexContent&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;
+
+&lt;complexType name="ItemData" abstract="true"&gt;
+  &lt;sequence&gt;
+    &lt;element ref="jr:dataset" minOccurs="0" maxOccurs="1"/&gt;
+    &lt;element ref="c:item" minOccurs="0" maxOccurs="unbounded"/&gt;
+  &lt;/sequence&gt;
+&lt;/complexType&gt;
+
+&lt;complexType name="ItemProperty"&gt;
+  &lt;sequence&gt;
+    &lt;element ref="jr:valueExpression" minOccurs="0" maxOccurs="1"/&gt;
+  &lt;/sequence&gt;
+  &lt;attribute name="name" type="string" use="required" /&gt;
+  &lt;attribute name="value" type="string" use="optional" /&gt;
+&lt;/complexType&gt;
+
+&lt;element name="item"&gt;
+  &lt;complexType&gt;
+    &lt;sequence&gt;
+      &lt;element name="itemProperty" type="c:ItemProperty" minOccurs="0" maxOccurs="unbounded" /&gt;
+    &lt;/sequence&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;
+
+&lt;element name="markerData"&gt;
+  &lt;complexType&gt;
+    &lt;complexContent&gt;
+      &lt;extension base="c:ItemData"&gt;
+      &lt;/extension&gt;
+    &lt;/complexContent&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;
+
+&lt;element name="markerDataset"&gt;
+  &lt;annotation&gt;
+    &lt;documentation&gt;Creates a dataset with one or more marker objects&lt;/documentation&gt;
+  &lt;/annotation&gt;
+  &lt;complexType&gt;
+    &lt;sequence&gt;
+      &lt;element ref="jr:datasetRun" minOccurs="0" maxOccurs="1"/&gt;
+      &lt;element ref="c:marker" minOccurs="0" maxOccurs="unbounded"/&gt;
+    &lt;/sequence&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;
+
+&lt;element name="marker"&gt;
+  &lt;complexType&gt;
+    &lt;sequence&gt;
+      &lt;element name="markerProperty" type="c:ItemProperty" minOccurs="0" maxOccurs="unbounded" /&gt;
+    &lt;/sequence&gt;
+  &lt;/complexType&gt;
+&lt;/element&gt;</pre>
+
+<b>Important note:
+<br>
+
+<br>
+The JR built-in <span class="code"><code>map</code></span> component is based on the public 
+<a href="http://code.google.com/apis/maps/documentation/javascript/reference.html" target="_blank" class="element">Google Maps APIs</a> licensed 
+under the <a href="http://creativecommons.org/licenses/by/3.0" target="_blank" class="element">Creative Commons Attribution 3.0 License</a>. Prior to 
+start using this component, please consult both <a href="https://developers.google.com/maps/terms" target="_blank" class="element">Google terms of service</a> 
+and <a href="https://developers.google.com/readme/policies" target="_blank" class="element">Google site policies</a> pages. 
+<br>
+Ensure the map component in your application is used in accordance with these terms and conditions.</b>
+
+<br>
+
+<br>
+
+<b>Map Attributes</b>
+
+<br>    
+
+<br> 
+One can customize the map component using the following attributes:
+<ul>
+
+<li>
+<span class="code"><code>mapType</code></span> - indicates the map type. Possible values are:
+<ul>
+
+<li>
+<span class="code"><code>roadmap</code></span> (default)</li>
+
+<li>
+<span class="code"><code>satellite</code></span>
+</li>
+
+<li>
+<span class="code"><code>terrain</code></span>
+</li>
+
+<li>
+<span class="code"><code>hybrid</code></span>
+<br>
+<br>
+</li>
+
+</ul>
+
+</li>
+
+<li>
+<span class="code"><code>mapScale</code></span> - represents the <span class="code"><code>scale</code></span> value used to return higher-resolution map images when 
+working with high resolution screens available on mobile devices.  Possible values are:
+<ul>
+
+<li>
+<span class="code"><code>1</code></span> (default)</li>
+
+<li>
+<span class="code"><code>2</code></span>
+</li>
+
+<li>
+<span class="code"><code>4</code></span> (for Business customers only)<br>
+<br>
+</li>
+
+</ul>
+
+</li>
+
+<li>
+<span class="code"><code>imageType</code></span> - represents the image format of the map. Possible values are:
+<ul>
+
+<li>
+<span class="code"><code>png</code></span> (default)</li>
+
+<li>
+<span class="code"><code>png8</code></span>
+</li>
+
+<li>
+<span class="code"><code>png32</code></span>
+</li>
+
+<li>
+<span class="code"><code>gif</code></span>
+</li>
+
+<li>
+<span class="code"><code>jpg</code></span>
+</li>
+
+<li>
+<span class="code"><code>jpg-baseline</code></span>
+</li>
+
+</ul>
+
+</li>
+
+<li>
+<span class="code"><code>onErrorType</code></span> - Applies to static maps only. This attribute specifies the behavior of the engine when the image is not available. Possible values are:
+<ul>
+
+<li>
+<span class="code"><code>Error</code></span> - An exception is raised when loading the map image. This is the default behavior.</li>
+
+<li>
+<span class="code"><code>Blank</code></span> - The exception is ignored and the map image displays as blank.</li>
+
+<li>
+<span class="code"><code>Icon</code></span> - The exception is ignored and an image replacement icon is displayed.</li>
+
+</ul>
+
+</li>
+
+</ul>   
+
+<b>The Latitude Expression</b>    
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:latitudeExpression/&gt;</code></span> represents the latitude coordinate of the map center, necessary to locate it on the Earth surface. 
+Allowed values are floating point numbers representing degrees from -90&deg; to 90&deg;.
+<br>
+
+<br>
+
+<b>The Longitude Expression</b>    
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:longitudeExpression/&gt;</code></span> represents the longitude coordinate of the map center, necessary to locate it on the Earth surface. 
+Allowed values are floating point numbers representing degrees from -180&deg; to 180&deg;.
+<br>
+
+<br>
+
+<b>The Address Expression</b>    
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:addressExpression/&gt;</code></span> represents the address of the map center and is optional. It will be considered only when the latitude and/or 
+longitude expressions are missing or empty. Computing address expressions relies on expensive time and resources consumption, therefore the report 
+filling performance may visibly decline. It is highly recommended to use latitude and longitude expressions whenever possible. 
+<br>
+
+<br>
+
+<b>The Zoom Expression</b>    
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:zoomExpression/&gt;</code></span> represents the initial map zoom level. The expression allows integer values and defaults to 0. 
+<br>
+
+<br>
+
+<b>The Language Expression</b>    
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:languageExpression/&gt;</code></span> represents the language code used to localize the textual information displayed on the map, 
+such as control names, copyright notices and other various labels. Supported languages can be found 
+<a href="https://spreadsheets.google.com/spreadsheet/pub?key=0Ah0xU81penP1cDlwZHdzYWkyaERNc0xrWHNvTTA1S1E&amp;gid=1" target="_blank" class="element">here</a>.
+<br>
+
+<br>
+
+<b>The Marker Dataset</b>   
+
+<br>
+
+<br>
+
+<b>Warning:</b> The <span class="code"><code><b>&lt;c:markerDataset/&gt;</b></code></span> element is now <b>deprecated</b>, as replaced by the <a href="#markerData" target="_blank" class="element">&lt;c:markerData/&gt;</a> element below:
+
+<br>
+
+<br>
+
+<a name="markerData" href="../../sample.reference/map/index.html#markerData" class="subtitle">The Marker Data Element</a>
+
+<br>
+
+<br>
+The <span class="code"><code>&lt;c:markerData/&gt;</code></span> element is used to generate the list of marker elements to be displayed on the map. It can collect  
+its data either from a subdataset, or from a hardcoded list of marker item elements as shown in the map component schema. 
+<br>
+The marker item element contains a list of specific item properties that can be set either by <span class="code"><code>value</code></span> or by <span class="code"><code>valueExpression</code></span>. If both are set, the 
+<span class="code"><code>valueExpression</code></span> takes precedence over the <span class="code"><code>value</code></span> attribute. With few exceptions, property names must 
+match the names of supported marker options available <a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions" target="_blank" class="element">here</a>. 
+<br>
+The main exception is the <span class="code"><code>position</code></span> option, currently undefined in JR. It is actually replaced by the <span class="code"><code>latitude</code></span> and <span class="code"><code>longitude</code></span> property 
+names, both necessary to compute the marker position on the map. If at least one of these two properties is missing or empty, try to set the equivalent <span class="code"><code>address</code></span> property. 
+If no address is available, an exception will be thrown. 
+<br>
+
+<br>
+
+<b>Warnings:</b> 
+
+<ul>
+
+<li>To avoid such exceptions when using a subdataset, use a <span class="code"><code>&lt;filterExpression&gt;</code></span> to skip markers with empty latitude/longitude and address 
+properties. A data filtering example can be found in the map component sample.
+</li>
+
+<li>The intensive use of the <span class="code"><code>address</code></span> property is not recommended, because it will definitely slow the report generation. Try to use the latitude and longitude 
+properties when they are available.</li>
+
+</ul>
+Below is a list of valid <span class="code"><code>itemProperty</code></span> names:
+<ul>
+
+<li>
+<span class="code"><code>latitude</code></span> - floating-point value</li>
+
+<li>
+<span class="code"><code>longitude</code></span> - floating-point value</li>
+
+<li>
+<span class="code"><code>address</code></span> - optional; string value; considered only when latitude and/or longitude are missing or empty</li>
+
+<li>
+<span class="code"><code>title</code></span> - string value</li>
+
+<li>
+<span class="code"><code>url</code></span> - string value. Link to a page or document that will be open when the marker is clicked on. See also <a href="#infoWindows" target="_blank" class="element">Info Windows</a>
+</li>
+
+<li>
+<span class="code"><code>target</code></span> - string value. The target window/frame to load the marker URL. Allowed values are:
+<ul>
+
+<li>
+<span class="code"><code>_blank</code></span> - the URL is loaded into a new window</li>
+
+<li>
+<span class="code"><code>_parent</code></span> - the URL is loaded into the parent frame</li>
+
+<li>
+<span class="code"><code>_self</code></span> - the URL replaces the current page</li>
+
+<li>
+<span class="code"><code>_top</code></span> - the URL replaces any framesets that may be loaded</li>
+
+<li>a valid window/frame name</li>
+
+</ul>
+
+</li>
+
+<li>
+<span class="code"><code>icon</code></span> - string value (representing the icon URL). See also <a href="#customIcons" target="_blank" class="element">Custom Icons</a>
+</li>
+
+<li>
+<span class="code"><code>shadow</code></span> - string value (representing the shadow icon URL). See also <a href="#customIcons" target="_blank" class="element">Custom Icons</a>
+</li>
+
+<li>
+<span class="code"><code>color</code></span> - string value representing the color for the default pin icons. This property is taken into account when none of  
+<span class="code"><code>icon</code></span> or <span class="code"><code>icon.url</code></span> properties are set. Its value may represent:
+<ul>
+
+<li>one of the predefined color names in the following list (see also <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/type/ColorEnum.html" target="_blank">ColorEnum</a></span>):
+<ul>
+
+<li>
+<span class="code"><code>black</code></span>
+</li>
+
+<li>
+<span class="code"><code>blue</code></span>
+</li>
+
+<li>
+<span class="code"><code>cyan</code></span>
+</li>
+
+<li>
+<span class="code"><code>darkGray</code></span>
+</li>
+
+<li>
+<span class="code"><code>gray</code></span>
+</li>
+
+<li>
+<span class="code"><code>green</code></span>
+</li>
+
+<li>
+<span class="code"><code>lightGray</code></span>
+</li>
+
+<li>
+<span class="code"><code>magenta</code></span>
+</li>
+
+<li>
+<span class="code"><code>orange</code></span>
+</li>
+
+<li>
+<span class="code"><code>pink</code></span>
+</li>
+
+<li>
+<span class="code"><code>red</code></span>
+</li>
+
+<li>
+<span class="code"><code>yellow</code></span>
+</li>
+
+<li>
+<span class="code"><code>white</code></span>
+</li>
+
+</ul>
+
+</li>
+
+<li>a valid color hex code (prefixed by #). For instance: #0000FF.</li>
+
+<li>the color RGB value.</li>
+
+</ul>
+
+</li>
+
+<li>
+<span class="code"><code>label</code></span> - string value representing the label for the default pin icons. This property is taken into account when none of  
+<span class="code"><code>icon</code></span> or <span class="code"><code>icon.url</code></span> properties are set.
+<br>
+
+<br>
+
+<b>Note:</b> Unlike interactive maps, Google static maps require single uppercase alphanumeric character labels. If multiple character 
+labels are set, the JR engine will process the entire label for dynamic maps and only the first character in the label for static maps. 
+Labels are displayed only for default and mid sized markers, small and tiny markers provide no capability to display labels.
+<br>
+
+<br>
+
+</li>
+
+<li>
+<span class="code"><code>cursor</code></span> - string value</li>
+
+<li>
+<span class="code"><code>zIndex</code></span> - integer value</li>
+
+<li>
+<span class="code"><code>clickable</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>draggable</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>flat</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>optimized</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>raiseOnDrag</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>visible</code></span> - boolean value</li>
+
+<li>
+<span class="code"><code>size</code></span> - predefined string value. This property is considered for static maps only. See the 
+<a href="#googleStaticMaps" target="_blank" class="element">Google Static Maps</a> section.</li>
+
+</ul>
+
+<a name="customIcons" href="../../sample.reference/map/index.html#customIcons" class="subtitle">Custom Icons</a>
+
+<br>
+
+<br>
+Both <span class="code"><code>icon</code></span> and <span class="code"><code>shadow</code></span> properties indicate an image location, without any additional information. In this case 
+the image is loaded as it is and is placed in built-in positions on the map, using Google Maps defaults. But sometimes, marker icons need 
+more detailed configurations, in order to get a better map appearance. In this case one can build custom icons, with the following properties:
+<br>
+
+<br>
+For marker icons:
+<ul>
+
+<li>
+<span class="code"><code>icon.url</code></span> - string value (representing the custom icon URL). If set, it takes precedence over the <span class="code"><code>icon</code></span> property.</li>
+
+<li>
+<span class="code"><code>icon.width</code></span> - integer value representing the icon width, in pixels. To be considered, <span class="code"><code>icon.height</code></span> must be also set.</li>
+
+<li>
+<span class="code"><code>icon.height</code></span> - integer value representing the icon height, in pixels. To be considered, <span class="code"><code>icon.width</code></span> must be also set.</li>
+
+<li>
+<span class="code"><code>icon.origin.x</code></span> - integer value representing the horizontal position of the image within a sprite, if any, in pixels. Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>icon.origin.y</code></span> - integer value representing the vertical position of the image within a sprite, if any, in pixels. Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>icon.anchor.x</code></span> - integer value representing the horizontal position to anchor an image with respect to the location of the marker on the map. 
+Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>icon.anchor.y</code></span> - integer value representing the vertical position to anchor an image with respect to the location of the marker on the map. 
+Default value is <span class="code"><code>0</code></span>.</li>
+
+</ul>
+For shadow icons:
+<ul>
+
+<li>
+<span class="code"><code>shadow.url</code></span> - string value (representing the custom shadow icon URL). If set, it takes precedence over the <span class="code"><code>shadow</code></span> property.</li>
+
+<li>
+<span class="code"><code>shadow.width</code></span> - integer value representing the shadow icon width, in pixels. To be considered, <span class="code"><code>shadow.height</code></span> must be also set.</li>
+
+<li>
+<span class="code"><code>shadow.height</code></span> - integer value representing the shadow icon height, in pixels. To be considered, <span class="code"><code>shadow.width</code></span> must be also set.</li>
+
+<li>
+<span class="code"><code>shadow.origin.x</code></span> - integer value representing the horizontal position of the shadow image within a sprite, if any, in pixels. Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>shadow.origin.y</code></span> - integer value representing the vertical position of the shadow image within a sprite, if any, in pixels. Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>shadow.anchor.x</code></span> - integer value representing the horizontal position to anchor a shadow image with respect to the location of the marker on the map. 
+Default value is <span class="code"><code>0</code></span>.</li>
+
+<li>
+<span class="code"><code>shadow.anchor.y</code></span> - integer value representing the vertical position to anchor a shadow image with respect to the location of the marker on the map. 
+Default value is <span class="code"><code>0</code></span>.</li>
+
+</ul>
+
+<a name="infoWindows" href="../../sample.reference/map/index.html#infoWindows" class="subtitle">Info Windows</a>
+
+<br>
+
+<br>
+When a marker icon is clicked on the map, additional information can be displayed either in a separate window/frame or in an info window floating above the map. 
+The text content in an info window is processed as HTML, therefore the HTML notation should be used for special characters 
+(see reserved characters <a href="http://www.w3schools.com/tags/ref_entities.asp" target="_blank" class="element">here</a>.) 
+<br>
+If both <span class="code"><code>url</code></span> and info window settings are present in a marker definition, the info window takes precedence over the marker URL. Clicking on the marker 
+icon will open the info window.
+<br>
+To configure an info window, the following item properties are available:
+<ul>
+
+<li>
+<span class="code"><code>infowindow.content</code></span> - string value. Represents the content to be displayed in an info window, processed as HTML fragment. Is mandatory for info windows. 
+Empty contents are not processed.</li>
+
+<li>
+<span class="code"><code>infowindow.latitude</code></span> - floating-point value. Represents the latitude used to determine the info window position on the map. Neglected for info windows attached to markers.</li>
+
+<li>
+<span class="code"><code>infowindow.longitude</code></span> - floating-point value. Represents the longitude used to determine the info window position on the map. Neglected for info windows attached to markers.</li>
+
+<li>
+<span class="code"><code>infowindow.pixelOffset</code></span> - integer value. Represents the offset (in pixels) from the tip of the info window to the location on which the info window is anchored.</li>
+
+<li>
+<span class="code"><code>infowindow.maxWidth</code></span> - integer value. Specifies the maximum width in pixels of the info window</li>
+
+</ul>
+
+<a name="paths" href="../../sample.reference/map/index.html#paths" class="subtitle">Paths on Google Maps</a>
+
+<br>
+
+<br>
+Various locations on a given map can be connected to form a path. To configure a path on the map, the following information is needed:
+<ul>
+
+<li>an ordered sequence of points to be connected. The sequence must contain at least 2 points in order to be considered.</li>
+
+<li>various style descriptors (such as line color, opacity or weight), in order to create custom appearances for paths</li>
+
+</ul>
+
+<a name="pathData" href="../../sample.reference/map/index.html#pathData" class="subtitle">The Path Data Element</a>
+
+<br>
+
+<br>
+Points that have to be connected in a path are grouped into the <span class="code"><code>&lt;pathData/&gt;</code></span> element. A path data element is very similar to the 
+<a href="#markerData" target="_blank" class="element">marker data element</a> described above, but comes with a different set of item properties. Each item in the path data element 
+represents a place on the map and must provide either the <span class="code"><code>latitude</code></span> and <span class="code"><code>longitude</code></span>, or the equivalent <span class="code"><code>address</code></span> 
+property from the following list of allowed properties:
+<ul>
+
+<li>
+<span class="code"><code>latitude</code></span> - floating-point value</li>
+
+<li>
+<span class="code"><code>longitude</code></span> - floating-point value</li>
+
+<li>
+<span class="code"><code>address</code></span> - optional; string value</li>
+
+<li>
+<span class="code"><code>name</code></span> - optional; string value. Represents the identifier of a given path, necessary when multiple paths have to be represented on the same map. 
+Points with the same <span class="code"><code>name</code></span> property belong to the same path. If not provided, the point will be added to the default path.</li>
+
+<li>
+<span class="code"><code>style</code></span> - optional; string value. Represents the name of a given path style (path styles are discussed in the next section of this document). 
+If not provided, the path will be generated using Google default style settings for paths.</li>
+
+<li>
+<span class="code"><code>strokeColor</code></span> - optional; string value. Represents the path line color. Named colors are not supported for all Google Maps APIs, so the hex value 
+representation for the color would be more suited in this case.</li>
+
+<li>
+<span class="code"><code>strokeOpacity</code></span> - optional; numeric value between 0 and 1 (default). Represents the path line opacity. 1 means 100% opaque, 0 means 100% transparent.</li>
+
+<li>
+<span class="code"><code>strokeWeight</code></span> - optional; integer value. Represents the path line weight in pixels. Default value is 5.</li>
+
+<li>
+<span class="code"><code>fillColor</code></span> - optional; string value. Considered for polygons only, represents the fill color for the polygonal contour. Also named colors are 
+not recommended in this case.</li>
+
+<li>
+<span class="code"><code>fillOpacity</code></span> - optional; numeric value between 0 (default) and 1. Considered for polygons only, represents the fill opacity for the polygonal contour. 
+1 means 100% opaque, 0 means 100% transparent.</li>
+
+<li>
+<span class="code"><code>isPolygon</code></span> - optional; boolean value. If set to <span class="code"><code>true</code></span> the last point in the path is connected to the first point in order to form a polygon (closed path).
+Default value is <span class="code"><code>false</code></span>
+</li>
+
+<li>
+<span class="code"><code>clickable</code></span> - optional; boolean value. If set to <span class="code"><code>true</code></span>, the path object may handle mouse events. Defaults to <span class="code"><code>true</code></span>.</li>
+
+<li>
+<span class="code"><code>editable</code></span> - optional; boolean value. If set to <span class="code"><code>true</code></span>, the user may edit the path using the control points shown along the path line. Defaults to <span class="code"><code>false</code></span>.</li>
+
+<li>
+<span class="code"><code>draggable</code></span> - optional; boolean value. If set to <span class="code"><code>true</code></span>, the user may drag the path contour over the map. Defaults to <span class="code"><code>false</code></span>.</li>
+
+<li>
+<span class="code"><code>geodesic</code></span> - optional; boolean value. Defines the mode of dragging. If set to <span class="code"><code>true</code></span>, edges of the polygon are interpreted as geodesic and will 
+follow the curvature of the Earth when the path contour is dragged. Defaults to <span class="code"><code>false</code></span>.</li>
+
+<li>
+<span class="code"><code>visible</code></span> - optional; boolean value. If set to <span class="code"><code>true</code></span>, the path is visible on the map. Defaults to <span class="code"><code>true</code></span>.</li>
+
+<li>
+<span class="code"><code>zIndex</code></span> - optional; integer value. Represents the zIndex compared to other path elements</li>
+
+</ul>
+
+<b>Notes:</b> 
+
+<ul>
+
+<li>A map component may contain 0, one or several <span class="code"><code>&lt;pathData/&gt;</code></span> elements.</li>
+
+<li>Points in a given path are connected one by one, in the same order they were declared in the report. To get consistent results, make sure items 
+in the path data element are declared in the right order.</li>
+
+<li>If points in the same path provide different values for the same item property, the property value will be set by the last point in the path that provides this property.</li>
+
+<li>The intensive use of the <span class="code"><code>address</code></span> property is not recommended, because it will definitely slow the report generation. Try to use the latitude and longitude 
+properties when they are available.</li>
+
+</ul>
+
+<a name="pathStyle" href="../../sample.reference/map/index.html#pathStyle" class="subtitle">The Path Style Element</a>
+
+<br>
+
+<br>
+In order to avoid redundant data, common style properties for a given path can be grouped in a style element, so that individual items (points) in the path have 
+to remember only the name of the path style, instead of carrying several style properties by themselves. Path styles are grouped together into a <span class="code"><code>&lt;pathStyle/&gt;</code></span> element, 
+very similar to <span class="code"><code>&lt;pathData/&gt;</code></span>, excepting the <span class="code"><code>latitude</code></span> and <span class="code"><code>longitude</code></span> properties that are not considered in a path style.
+<br>
+Below is the list of allowed properties in a path style, with the same meaning and defaults (excepting the <span class="code"><code>name</code></span> property) as in the path data element:
+<ul>
+
+<li>
+<span class="code"><code>name</code></span> - required; string value. Represents the name (unique identifier) of a given style.</li>
+
+<li>
+<span class="code"><code>style</code></span> - optional; string value. Represents the name of a parent path style. If present, all the properties in the parent style will be inherited by the current style.
+The own properties of the current style will override the parent properties.</li>
+
+<li>
+<span class="code"><code>strokeColor</code></span>
+</li>
+
+<li>
+<span class="code"><code>strokeOpacity</code></span>
+</li>
+
+<li>
+<span class="code"><code>strokeWeight</code></span>
+</li>
+
+<li>
+<span class="code"><code>fillColor</code></span>
+</li>
+
+<li>
+<span class="code"><code>fillOpacity</code></span>
+</li>
+
+<li>
+<span class="code"><code>isPolygon</code></span>
+</li>
+
+<li>
+<span class="code"><code>clickable</code></span>
+</li>
+
+<li>
+<span class="code"><code>editable</code></span>
+</li>
+
+<li>
+<span class="code"><code>draggable</code></span>
+</li>
+
+<li>
+<span class="code"><code>geodesic</code></span>
+</li>
+
+<li>
+<span class="code"><code>visible</code></span>
+</li>
+
+<li>
+<span class="code"><code>zIndex</code></span>
+</li>
+
+</ul>
+
+<b>Notes:</b> 
+
+<ul>
+
+<li>A map component may contain 0, one or several <span class="code"><code>&lt;pathStyle/&gt;</code></span> elements.</li>
+
+<li>If style items with the same name provide different values for the same item property, the property value will be set by the last item in the list that provides this property.</li>
+
+<li>If present, an own style property in a path data item will override the same property inherited from the path style.</li>
+
+</ul>
+
+<a name="googleStaticMaps" href="../../sample.reference/map/index.html#googleStaticMaps" class="subtitle">Google Static Maps</a>
+
+<br>
+
+<br>
+Exporters that don't allow JavaScript or dynamic page loading may use the Google Static Map service 
+that creates and returns a map image depending on a given set of HTTP request parameters. The map image 
+does not support user interactivity, but can be used to substitute with some inherent limitations a dynamic map, for read-only purposes.
+<br>
+In these conditions, not all item properties defined for markers are considered in static maps. The available properties in this case are:
+<ul>
+
+<li>
+<span class="code"><code>latitude</code></span>
+</li>
+
+<li>
+<span class="code"><code>longitude</code></span>
+</li>
+
+<li>
+<span class="code"><code>icon</code></span> - the icon URL has to be accessible for the Google Static Map service</li>
+
+<li>
+<span class="code"><code>icon.url</code></span> - the icon URL has to be accessible for the Google Static Map service</li>
+
+<li>
+<span class="code"><code>color</code></span>
+</li>
+
+<li>
+<span class="code"><code>label</code></span>
+</li>
+
+<li>
+<span class="code"><code>size</code></span> - predefined string value. Specifies the marker size (for the built-in markers only). Allowed values are:
+<ul>
+
+<li>
+<span class="code"><code>mid</code></span>
+</li>
+
+<li>
+<span class="code"><code>tiny</code></span>
+</li>
+
+<li>
+<span class="code"><code>small</code></span>
+</li>
+
+</ul>
+If no size is set, the default icon is loaded with its normal size
+</li>
+
+</ul>
+For similar reasons, path style properties considered in static maps are the following:
+<ul>
+
+<li>
+<span class="code"><code>strokeColor</code></span>
+</li>
+
+<li>
+<span class="code"><code>strokeOpacity</code></span>
+</li>
+
+<li>
+<span class="code"><code>strokeWeight</code></span>
+</li>
+
+<li>
+<span class="code"><code>fillColor</code></span>
+</li>
+
+<li>
+<span class="code"><code>fillOpacity</code></span>
+</li>
+
+<li>
+<span class="code"><code>isPolygon</code></span>
+</li>
+
+<li>
+<span class="code"><code>geodesic</code></span>
+</li>
+
+</ul>
+
+<b>Map Component Example</b>    
+
+<br>
+
+<br>
+The JRXML sample contains five <span class="code"><code>map</code></span> components that illustrate how various settings can be applied in order to get the desired map 
+rendering. Each map is loaded from a subreport and collect its data from the CSV datasource located in the <span class="code"><code>data</code></span> subfolder.
+<br>
+
+<br>
+
+<a name="map1" href="../../sample.reference/map/index.html#map1" class="subtitle">Map #1: Simple Road Map</a>
+
+<br>
+
+<br>
+The first map is loaded from the <span class="code"><code>reports/MapReport1.jrxml</code></span> template, and illustrates a road map with minimal settings. There are no 
+markers and no additional information on the map:
+<pre>
+&lt;componentElement&gt;
+  &lt;reportElement x="0" y="150" width="515" height="326" positionType="Float"/&gt;
+  &lt;c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" evaluationTime="Report" onErrorType="Icon"&gt;
+    &lt;c:latitudeExpression&gt;&lt;![CDATA[$P{latitude}]] &gt;&lt;/c:latitudeExpression&gt;
+    &lt;c:longitudeExpression&gt;&lt;![CDATA[$P{longitude}]] &gt;&lt;/c:longitudeExpression&gt;
+    &lt;c:zoomExpression&gt;&lt;![CDATA[$P{zoom}]] &gt;&lt;/c:zoomExpression&gt;
+    &lt;c:languageExpression&gt;&lt;![CDATA[new java.util.Locale("ro").getLanguage()]] &gt;&lt;/c:languageExpression&gt;
+  &lt;/c:map&gt;
+&lt;/componentElement&gt;</pre>
+
+<a name="map2" href="../../sample.reference/map/index.html#map2" class="subtitle">Map #2: Satellite Map with Default Marker Icons</a>
+
+<br>
+
+<br>
+The second map is loaded from the <span class="code"><code>reports/MapReport2.jrxml</code></span> template. One can notice the <span class="code"><code>mapType="satellite" mapScale="1" imageType="jpg"</code></span> 
+attribute settings. The satellite map also contains a set of 5 markers with default icons and tooltips enabled. All marker settings are grouped in the 
+<span class="code"><code>&lt;c:markerData/&gt;</code></span> section which collects its data from the <span class="code"><code>MarkersDataset</code></span> subdataset. Data with invalid latitude/longitude values are 
+skipped due to the <span class="code"><code>&lt;filterExpression/&gt;</code></span> in the subdataset:
+<pre>
+&lt;subDataset name="MarkersDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/CsvDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="address" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[street address]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="latitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[latitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="longitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[longitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;
+    &lt;![CDATA[$F{latitude}==null || "".equals($F{latitude}) || $F{longitude}==null || "".equals($F{longitude})  ? Boolean.FALSE : Boolean.TRUE]] &gt;
+  &lt;/filterExpression&gt;
+&lt;/subDataset&gt;</pre>
+The map component configuration is the following:
+<pre>
+&lt;componentElement&gt;
+  &lt;reportElement x="0" y="150" width="515" height="326" positionType="Float"/&gt;
+  &lt;c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd"
+    mapType="satellite" mapScale="1" imageType="jpg" onErrorType="Blank"&gt;
+    &lt;c:latitudeExpression&gt;&lt;![CDATA[37.800056f]] &gt;&lt;/c:latitudeExpression&gt;
+    &lt;c:longitudeExpression&gt;&lt;![CDATA[-122.4075f]] &gt;&lt;/c:longitudeExpression&gt;
+    &lt;c:zoomExpression&gt;&lt;![CDATA[$P{zoom} + 1]] &gt;&lt;/c:zoomExpression&gt;
+    &lt;c:markerData&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="MarkersDataset"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="latitude"&gt;
+          &lt;valueExpression&gt;$F{latitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="longitude"&gt;
+          &lt;valueExpression&gt;$F{longitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="title"&gt;
+          &lt;valueExpression&gt;$F{address}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:markerData&gt;
+  &lt;/c:map&gt;
+&lt;/componentElement&gt;</pre>
+
+<a name="map3" href="../../sample.reference/map/index.html#map3" class="subtitle">Map #3: Terrain Map with Custom Marker Icons</a>
+
+<br>
+
+<br>
+The 3rd map is a terrain sample loaded from the <span class="code"><code>reports/MapReport3.jrxml</code></span> template. It comes with the same set of markers as 
+<a href="#map2" target="_blank" class="element">Map #2</a>, but this time marker icons are loaded from custom URLs, with the specified width and height. Below is the map 
+component configuration (and the subdataset):
+<pre>
+&lt;subDataset name="MarkersDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/CsvDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="address" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[street address]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="latitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[latitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="longitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[longitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconurl" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[iconurl]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconwidth" class="java.lang.Integer"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[iconwidth]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconheight" class="java.lang.Integer"&gt;
+   &lt;fieldDescription&gt;&lt;![CDATA[iconheight]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;
+    &lt;![CDATA[$F{latitude}==null || "".equals($F{latitude}) || $F{longitude}==null || "".equals($F{longitude})  ? Boolean.FALSE : Boolean.TRUE]] &gt;
+  &lt;/filterExpression&gt;
+&lt;/subDataset&gt;
+...
+&lt;componentElement&gt;
+  &lt;reportElement x="0" y="150" width="515" height="326" positionType="Float"/&gt;
+  &lt;c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd"
+    mapType="terrain" mapScale="1" imageType="jpg" onErrorType="Icon"&gt;
+    &lt;c:latitudeExpression&gt;&lt;![CDATA[37.800056f]] &gt;&lt;/c:latitudeExpression&gt;
+    &lt;c:longitudeExpression&gt;&lt;![CDATA[-122.4075f]] &gt;&lt;/c:longitudeExpression&gt;
+    &lt;c:zoomExpression&gt;&lt;![CDATA[$P{zoom} + 1]] &gt;&lt;/c:zoomExpression&gt;
+    &lt;c:markerData&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="MarkersDataset"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="latitude"&gt;
+          &lt;valueExpression&gt;$F{latitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="longitude"&gt;
+          &lt;valueExpression&gt;$F{longitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="title"&gt;
+          &lt;valueExpression&gt;$F{address}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.url"&gt;
+          &lt;valueExpression&gt;$F{iconurl}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.width"&gt;
+          &lt;valueExpression&gt;$F{iconwidth}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.height"&gt;
+          &lt;valueExpression&gt;$F{iconheight}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:markerData&gt;
+  &lt;/c:map&gt;
+&lt;/componentElement&gt;</pre>
+
+<a name="map4" href="../../sample.reference/map/index.html#map4" class="subtitle">Map #4: Satellite Map with Marker Hyperlinks and Paths</a>
+
+<br>
+
+<br>
+In the 4th sample loaded from the <span class="code"><code>reports/MapReport4.jrxml</code></span> template the same set of markers with default icons are placed on a 
+satellite map. This time marker icons display custom colors, and in static maps only, custom sizes. Marker tooltips are disabled, but markers 
+provide hyperlinks. Clicking on a marker icon will open a new browser window/tab with related information. In addition, all markers are connected to form  
+a green polygonal contour and two of them are also connected with a blue line.
+<br>
+
+<br>
+Two additional subdatasets were added in order to generate path styles and path data.See the configuration below:
+<pre>
+&lt;subDataset name="MarkersDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/CsvDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="latitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[latitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="longitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[longitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="size" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[size]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="color" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[color]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="url" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[url]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;
+    &lt;![CDATA[$F{latitude}==null || "".equals($F{latitude}) || $F{longitude}==null || "".equals($F{longitude})  ? Boolean.FALSE : Boolean.TRUE]] &gt;
+  &lt;/filterExpression&gt;
+&lt;/subDataset&gt;
+&lt;subDataset name="PathStyleDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/PathStyleDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="name" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[name]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="strokecolor" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[strokecolor]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="strokeopacity" class="java.lang.Double"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[strokeopacity]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="strokeweight" class="java.lang.Integer"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[strokeweight]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="fillcolor" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[fillcolor]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="fillopacity" class="java.lang.Double"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[fillopacity]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="draggable" class="java.lang.Boolean"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[draggable]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;&lt;![CDATA[$F{name}==null || "".equals($F{name}) ? Boolean.FALSE : Boolean.TRUE]] &gt;&lt;/filterExpression&gt;
+&lt;/subDataset&gt;
+&lt;subDataset name="PathLocationDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/PathLocationDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="name" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[name]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="style" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[style]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="latitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[latitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="longitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[longitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="ispolygon" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[ispolygon]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;
+    &lt;![CDATA[$F{latitude}==null || "".equals($F{latitude}) || $F{longitude}==null || "".equals($F{longitude})  ? Boolean.FALSE : Boolean.TRUE]] &gt;
+  &lt;/filterExpression&gt;
+&lt;/subDataset&gt;
+...
+&lt;componentElement&gt;
+  &lt;reportElement x="0" y="150" width="515" height="326" positionType="Float"/&gt;
+  &lt;c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd"
+    mapType="satellite" mapScale="1" imageType="jpg" onErrorType="Icon"&gt;
+    &lt;c:latitudeExpression&gt;&lt;![CDATA[37.800056f]] &gt;&lt;/c:latitudeExpression&gt;
+    &lt;c:longitudeExpression&gt;&lt;![CDATA[-122.4075f]] &gt;&lt;/c:longitudeExpression&gt;
+    &lt;c:zoomExpression&gt;&lt;![CDATA[$P{zoom} + 1]] &gt;&lt;/c:zoomExpression&gt;
+    &lt;c:markerData&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="MarkersDataset"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="latitude"&gt;
+          &lt;valueExpression&gt;$F{latitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="longitude"&gt;
+          &lt;valueExpression&gt;$F{longitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="color"&gt;
+          &lt;valueExpression&gt;$F{color}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="size"&gt;
+          &lt;valueExpression&gt;$F{size}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="url"&gt;
+          &lt;valueExpression&gt;$F{url}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="target"&gt;
+          &lt;valueExpression&gt;"_blank"&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:markerData&gt;
+    &lt;c:pathStyle&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="PathStyleDataset" uuid="2f83580b-a7e7-496e-8eca-d2993a5f1120"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="name"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{name}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="strokeColor"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{strokecolor}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="strokeOpacity"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{strokeopacity}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="strokeWeight"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{strokeweight}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="fillColor"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{fillcolor}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="fillOpacity"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{fillopacity}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="draggable"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{draggable}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:pathStyle&gt;
+    &lt;c:pathData&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="PathLocationDataset" uuid="b9d465b5-397d-4c65-8814-e85e757c97d0"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="name"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{name}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="style"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{style}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="latitude"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{latitude}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="longitude"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{longitude}]] &gt;&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="isPolygon"&gt;
+          &lt;valueExpression&gt;&lt;![CDATA[$F{ispolygon}]] &lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:pathData&gt;
+  &lt;/c:map&gt;
+&lt;/componentElement&gt;</pre>
+
+<a name="map5" href="../../sample.reference/map/index.html#map5" class="subtitle">Map #5: Hybrid Map with Custom Icons and Info Windows</a>
+
+<br>
+
+<br>
+The last sample is loaded from <span class="code"><code>reports/MapReport5.jrxml</code></span> template. Markers provide custom icons and tooltips. Clicking on 
+a marker icon will open an info window with related information about the marker position. The value of the <span class="code"><code>infowindow.content</code></span> 
+property is a HTML fragment with escaped open and end tags.
+<pre>
+&lt;subDataset name="MarkersDataset"&gt;
+  &lt;property name="net.sf.jasperreports.data.adapter" value="/data/CsvDataAdapter.xml"/&gt;
+  &lt;queryString language="csv"&gt;
+    &lt;![CDATA[]] &gt;
+  &lt;/queryString&gt;
+  &lt;field name="address" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[street address]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="latitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[latitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="longitude" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[longitude]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconurl" class="java.lang.String"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[iconurl]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconwidth" class="java.lang.Integer"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[iconwidth]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;field name="iconheight" class="java.lang.Integer"&gt;
+    &lt;fieldDescription&gt;&lt;![CDATA[iconheight]] &gt;&lt;/fieldDescription&gt;
+  &lt;/field&gt;
+  &lt;filterExpression&gt;
+    &lt;![CDATA[$F{latitude}==null || "".equals($F{latitude}) || $F{longitude}==null || "".equals($F{longitude})  ? Boolean.FALSE : Boolean.TRUE]] &gt;
+  &lt;/filterExpression&gt;
+&lt;/subDataset&gt;
+...
+&lt;componentElement&gt;
+  &lt;reportElement x="0" y="150" width="515" height="326" positionType="Float"/&gt;
+  &lt;c:map xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd"
+    mapScale="1" imageType="jpg" mapType="hybrid" onErrorType="Icon"&gt;
+    &lt;c:latitudeExpression&gt;&lt;![CDATA[37.800056f]] &gt;&lt;/c:latitudeExpression&gt;
+    &lt;c:longitudeExpression&gt;&lt;![CDATA[-122.4075f]] &gt;&lt;/c:longitudeExpression&gt;
+    &lt;c:zoomExpression&gt;&lt;![CDATA[$P{zoom} + 1]] &gt;&lt;/c:zoomExpression&gt;
+    &lt;c:markerData&gt;
+      &lt;dataset&gt;
+        &lt;datasetRun subDataset="MarkersDataset"/&gt;
+      &lt;/dataset&gt;
+      &lt;c:item&gt;
+        &lt;c:itemProperty name="latitude"&gt;
+          &lt;valueExpression&gt;$F{latitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="longitude"&gt;
+          &lt;valueExpression&gt;$F{longitude}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="title"&gt;
+          &lt;valueExpression&gt;$F{address}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.url"&gt;
+          &lt;valueExpression&gt;$F{iconurl}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.width"&gt;
+          &lt;valueExpression&gt;$F{iconwidth}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="icon.height"&gt;
+          &lt;valueExpression&gt;$F{iconheight}&lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+        &lt;c:itemProperty name="infowindow.content"&gt;
+          &lt;valueExpression&gt;"&lt;p style='text-align:right;'&gt;&lt;img src='http://jasperreports.sourceforge.net/jasperreports.png'/&gt;&lt;/p&gt;
+          	&lt;p style='text-align:left;'&gt;current latitude: &lt;b&gt;"+$F{latitude}+"&lt;/b&gt;&lt;br/&gt;current longitude: &lt;b&gt;"+$F{longitude}+"&lt;/b&gt;&lt;/p&gt;"
+          &lt;/valueExpression&gt;
+        &lt;/c:itemProperty&gt;
+      &lt;/c:item&gt;
+    &lt;/c:markerData&gt;
+  &lt;/c:map&gt;
+&lt;/componentElement&gt;
+</pre>
+
+<b>Running the Sample</b>
+
+<br>
+
+<br>
+Running the sample requires the <a href="http://ant.apache.org/" target="_blank" class="element">Apache Ant</a> library. Make sure that <span class="code"><code>ant</code></span> is already installed on your system (version 1.5 or later).
+<br>
+In a command prompt/terminal window set the current folder to <span class="code"><code>demo/samples/map</code></span> within the JasperReports source project and run the <span class="code"><code>&gt; ant test view</code></span> command.
+<br>
+It will generate all supported document types containing the sample report in the <span class="code"><code>demo/samples/map/build/reports</code></span> directory. 
+<br>
+Then the report will open in the JasperReports internal viewer.
+    </span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td>
+<hr size="1">
+</td>
+</tr>
+<tr>
+<td align="center"><span class="copy">&copy; 2001-<script language="javascript">document.write((new Date()).getFullYear())</script> TIBCO Software Inc. <a href="http://www.jaspersoft.com" target="_blank" class="copy">www.jaspersoft.com</a></span></td>
+</tr>
+</table>
+</body>
+</html>

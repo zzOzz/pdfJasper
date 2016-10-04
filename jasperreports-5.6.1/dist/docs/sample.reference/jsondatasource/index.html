@@ -1,0 +1,614 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://jasperreports.sourceforge.net/jasperreports">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JasperReports 5.6.1 - JSON Data Source Sample</title>
+<style type="text/css">
+.title {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.toc {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.name {
+	font-family: Courier New, Courier, serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.label {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.description {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.value {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.element {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.attribute {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.code {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.copy {
+	font-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: #000000;
+}
+
+.subtitle {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: bold;
+	text-decoration: none;
+	color: inherit;
+}
+
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<a name="top"></a>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td colspan="2" align="right"><span class="element"><a href="../../JasperReports-Ultimate-Guide-3.pdf">JasperReports Ultimate Guide</a> - <a href="../../sample.reference.html">Sample Reference</a> - <a href="../../schema.reference.html">Schema Reference</a> - <a href="../../config.reference.html">Configuration Reference</a> - <a href="http://jasperreports.sourceforge.net/api/index.html">API (Javadoc)</a></span>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+<tr valign="middle">
+<td nowrap="true"><span class="title">JasperReports - JSON Data Source Sample (version 5.6.1)</span></td><td align="right"><img src="../../resources/jasperreports.png" border="0"></td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+</table>
+<br>
+<span class="description"><span class="description"></span></span>
+<br>
+<br>
+<span class="element"><a href="http://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%205.6.1/jasperreports-5.6.1-project.zip/download" target="_blank">Download All Sample Source Files</a></span>
+<br>
+<span class="element"><a href="http://code.jaspersoft.com/svn/repos/jasperreports/tags/jr-5-6-1/jasperreports/demo/samples/jsondatasource/" target="_blank">Browse Sample Source Files on SVN</a></span>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 20px;">
+<br>
+</td><td>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"><span class="label">Main Features in This Sample</span></td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td><span class="element"><a href="#jsondatasource">JSON Data Source</a></span></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td width="80%">
+<br>
+</td><td width="20%">
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="6" align="right"><a name="jsondatasource"></a><a href="#top" class="toc">top</a></td>
+</tr>
+<tr>
+<td colspan="6">
+<hr size="1">
+</td>
+</tr>
+<tr valign="top">
+<td><img src="../../resources/jr-16x16.png" border="0"></td><td colspan="4"><span class="name">JSON Data Source</span></td><td align="right"><span class="copy">Documented by 
+	<a href="mailto:shertage@users.sourceforge.net" class="copy">Sanda Zaharia</a></span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td nowrap="true"><span class="label">Description / Goal</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">How to fill a report using data from a JSON file.</span></td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td colspan="1"><span class="label">Since</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">4.0.1</span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td colspan="5"><span class="description">
+<b>JSON Data Source Overview</b>
+
+<br>
+
+<br>
+JSON stands for <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation and represents an open standard text format used 
+to transmit data across the network. The main purpose of the JSON format is to provide an alternate way to XML for 
+transporting data between a server and a client (web) application. Wherever possible, the use of a JSON data source 
+implementation (see the built-in <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/data/JsonDataSource.html" target="_blank">JsonDataSource</a></span>) 
+is recommended, because:
+<ul>
+
+<li>JSON comes with less memory consumption</li>
+
+<li>data is retrieved faster from JSON than from an equivalent XML stream</li>
+
+<li>the JSON syntax rules are very simple, they represent a subset of JavaScript rules:
+<ul>
+
+<li>data objects contain properties organized as name : value pairs, in a hierarchical structure</li>
+
+<li>each property inside an object has a specific value. Values of a JSON property can be:
+<ul>
+
+<li>a number (integer or floating point)</li>
+
+<li>a boolean (true or false)</li>
+
+<li>a string</li>
+
+<li>an object (set of name : value pairs)</li>
+
+<li>an array</li>
+
+<li>null</li>
+
+</ul>
+
+</li>
+
+<li>objects are enclosed in curly braces</li>
+
+<li>arrays are enclosed in square brackets; elements in an array are comma-separated</li>
+
+<li>distinct name : value pairs are comma-separated</li>
+
+<li>there are no reserved words</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+Let's see, for instance, the JSON objects inside the <span class="code"><code>data/northwind.json</code></span> source file:
+<pre>
+{"Northwind": {
+  "Customers": [
+    {
+      Phone: "030-0074321",	// nonstandard unquoted field name
+      'PostalCode': 12209,	// nonstandard single-quoted field name
+      "ContactName": "Maria Anders",	// standard double-quoted field name
+      "Fax": "030-0076545",
+      "Address": "Obere Str. 57",
+      "CustomerID": "ALFKI",
+      "CompanyName": "Alfreds Futterkiste",
+      "Country": "Germany",
+      "City": "Berlin",
+      "ContactTitle": "Sales Representative"
+    },
+  
+    ...
+  
+    {
+      "Phone": "(26) 642-7012",
+      "PostalCode": "01-012",
+      "ContactName": "Zbyszek Piestrzeniewicz",
+      "Fax": "(26) 642-7012",
+      "Address": "ul. Filtrowa 68",
+      "CustomerID": "WOLZA",
+      "CompanyName": "Wolski  Zajazd",
+      "Country": "Poland",
+      "City": "Warszawa",
+      "ContactTitle": "Owner"
+    }
+  ], 
+  
+  "Orders": [
+    {
+      "ShipPostalCode": 51100,
+      "ShippedDate": "1996-07-16",
+      "OrderDate": "1996-07-04",
+      "OrderID": 10248,
+      "Freight": 32.38,
+      "RequiredDate": "1996-08-01",
+      "ShipCity": "Reims",
+      "ShipCountry": "France",
+      "EmployeeID": 5,
+      "ShipVia": 3,
+      "CustomerID": "VINET",
+      "ShipAddress": "59 rue de l'Abbaye",
+      "ShipName": "Vins et alcools Chevalier"
+    },
+  
+    ...
+  
+    {
+      "ShipPostalCode": 87110,
+      "OrderDate": "1998-05-06",
+      "OrderID": 11077,
+      "Freight": 8.53,
+      "ShipRegion": "NM",
+      "RequiredDate": "1998-06-03",
+      "ShipCity": "Albuquerque",
+      "ShipCountry": "USA",
+      "EmployeeID": 1,
+      "ShipVia": 2,
+      "CustomerID": "RATTC",
+      "ShipAddress": "2817 Milton Dr.",
+      "ShipName": "Rattlesnake Canyon Grocery"
+    }
+  ]
+}}</pre>
+There is a <span class="code"><code>Northwind</code></span> parent object enclosing 2 comma-separated objects: <span class="code"><code>Customers</code></span> and <span class="code"><code>Orders</code></span>. 
+<br>
+The <span class="code"><code>Customers</code></span> object contains a list of similar structured objects, each representing a customer with the following properties:
+<ul>
+
+<li>
+<span class="code"><code>"Phone"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"PostalCode"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ContactName"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"Fax"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"Address"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"CustomerID"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"CompanyName"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"Country"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"City"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ContactTitle"</code></span>
+</li>
+
+</ul>
+The <span class="code"><code>Orders</code></span> object contains a list of order objects, each one exposing the following properties:
+<ul>
+
+<li>
+<span class="code"><code>"ShipPostalCode"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"OrderDate"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"OrderID"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"Freight"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipRegion"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"RequiredDate"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipCity"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipCountry"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"EmployeeID"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipVia"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"CustomerID"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipAddress"</code></span>
+</li>
+
+<li>
+<span class="code"><code>"ShipName"</code></span>
+</li>
+
+</ul>
+
+<b>The JSON Query Executer</b>
+
+<br>
+
+<br>
+Properties within a JSON object can be accessed using the period notation. Therefore 
+we have the possibility to query a JSON data source, like below:
+<br>
+
+<br>
+
+<span class="code"><code>Northwind.Orders</code></span>
+
+<br>
+or
+<br>
+
+<span class="code"><code>Northwind.Orders[0].OrderID</code></span>
+
+<br>
+
+<br>
+This can be used as a JSON query expression language to navigate through objects hierarchy in a 
+source document and retrieve their information, based on a tree representation of objects. The query string is processed using the 
+<a href="http://wiki.fasterxml.com/JacksonHome" target="_blank" class="element">Jackson library APIs</a>.
+<br>
+For instance, one can specify the following expression to produce a list of JSON objects as the report query:
+<pre>
+&lt;queryString language="json"&gt;
+  &lt;![CDATA[Northwind.Customers]] &gt;
+&lt;/queryString&gt;</pre>
+This query returns a list containing all customer elements in the <span class="code"><code>Customers</code></span> object. If we need 
+to retrieve only customers from USA, the query have to be refined as:
+<pre>
+&lt;queryString language="json"&gt;
+  &lt;![CDATA[Northwind.Customers(Country == USA)]] &gt;
+&lt;/queryString&gt;</pre>
+The JSON query language also supports parameters, in order to allow dynamic queries. Parameters are processed at runtime and replaced by their values. 
+For instance, if we define the Country parameter that holds the name of a given country, the parameterized query will look like:
+<pre>
+&lt;parameter name="Country" class="java.lang.String"/&gt;
+...
+&lt;queryString language="json"&gt;
+  &lt;![CDATA[Northwind.Customers(Country == $P{Country})]] &gt;
+&lt;/queryString&gt;</pre>
+The built-in JSON query executer (see the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuter.html" target="_blank">JsonQueryExecuter</a></span> class) is a tool that uses the query string to produce a 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/data/JsonDataSource.html" target="_blank">JsonDataSource</a></span> instance, 
+based on specific built-in parameters (or equivalent report properties). This query executer is registered via 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html" target="_blank">JsonQueryExecuterFactory</a></span> factory class. 
+<br>
+In order to prepare the data source, the JSON query executer looks for the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_INPUT_STREAM" target="_blank">JSON_INPUT_STREAM</a></span> parameter that contains the JSON 
+source objects in the form of an <span class="code"><code>java.io.InputStream</code></span>. If no 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_INPUT_STREAM" target="_blank">JSON_INPUT_STREAM</a></span> parameter is provided, then 
+the query executer looks for the alternate <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_SOURCE" target="_blank">net.sf.jasperreports.json.source</a></span> 
+String parameter or report property that stores the path to the location of the JSON source file.
+<br>
+
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuter.html" target="_blank">JsonQueryExecuter</a></span> runs the query over the input source and stores 
+the result in an in-memory <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/data/JsonDataSource.html" target="_blank">JsonDataSource</a></span> object.
+<br>
+
+<br>
+During the JsonDataSource instantiation, the query executer also looks for the following additional parameters or report properties, containing the required localization settings: 
+<ul>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_DATE_PATTERN" target="_blank">net.sf.jasperreports.json.date.pattern</a></span>
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_NUMBER_PATTERN" target="_blank">net.sf.jasperreports.json.number.pattern</a></span>
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_LOCALE" target="_blank">JSON_LOCALE</a></span> (parameter only) of type <span class="code"><code>java.util.Locale</code></span>
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_LOCALE_CODE" target="_blank">net.sf.jasperreports.json.locale.code</a></span> of type <span class="code"><code>java.lang.String</code></span>; 
+this can be used if no <span class="code"><code>java.util.Locale</code></span> parameter is available</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_TIME_ZONE" target="_blank">JSON_TIME_ZONE</a></span> (parameter only) of type <span class="code"><code>java.util.TimeZone</code></span>
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/query/JsonQueryExecuterFactory.html#JSON_TIME_ZONE_ID" target="_blank">net.sf.jasperreports.json.timezone.id</a></span> of type <span class="code"><code>java.lang.String</code></span>; 
+this can be used if no <span class="code"><code>java.util.TimeZone</code></span> parameter is available</li>
+
+</ul>
+In the next section you can see how these additional parameters are provided in the <span class="code"><code>/src/JsonDataSourceApp.java</code></span> class.
+<br>
+
+<br>
+
+<b>The JSON Data Source Sample</b>
+
+<br>
+
+<br>
+In our example data are stored as a hierarchy of <span class="code"><code>Northwind.Customers</code></span> and <span class="code"><code>Northwind.Orders</code></span> objects in the <span class="code"><code>data/northwind.json</code></span> file.
+<br> 
+The source file name is provided in the <span class="code"><code>reports/JsonCustomersReport.jrxml</code></span> via the report property:
+<pre>
+&lt;property name="net.sf.jasperreports.json.source" value="data/northwind.json"/&gt;</pre>
+In the <span class="code"><code>JsonCustomersReport</code></span> we run a JSON query in order to retrieve only the customers:
+<pre>
+&lt;queryString language="json"&gt;
+  &lt;![CDATA[Northwind.Customers]] &gt;
+&lt;/queryString&gt;</pre>
+The only <span class="code"><code>Customer</code></span> properties (fields) we are interested in are <span class="code"><code>CustomerID</code></span> and <span class="code"><code>CompanyName</code></span>:
+<pre>
+&lt;field name="CustomerID" class="java.lang.String"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[CustomerID]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;
+&lt;field name="CompanyName" class="java.lang.String"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[CompanyName]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;
+</pre>
+Additional parameters are passed to the report execution in the <span class="code"><code>/src/JsonDataSourceApp.java</code></span> class (see the <span class="code"><code>fill()</code></span> method):
+<pre>
+public void fill() throws JRException
+{
+  long start = System.currentTimeMillis();
+  
+  Map&lt;String, Object&gt; params = new HashMap&lt;String, Object&gt;();
+  params.put(JsonQueryExecuterFactory.JSON_DATE_PATTERN, "yyyy-MM-dd");
+  params.put(JsonQueryExecuterFactory.JSON_NUMBER_PATTERN, "#,##0.##");
+  params.put(JsonQueryExecuterFactory.JSON_LOCALE, Locale.ENGLISH);
+  params.put(JRParameter.REPORT_LOCALE, Locale.US);
+  
+  JasperFillManager.fillReportToFile("build/reports/JsonCustomersReport.jasper", params);
+  System.err.println("Filling time : " + (System.currentTimeMillis() - start));
+}</pre>
+Each customer in the datasource requires an <span class="code"><code>Orders</code></span> subreport. Data source and parameters are transmitted from the master report:
+<pre>
+&lt;subreport&gt;
+  &lt;reportElement isPrintRepeatedValues="false" x="5" y="25" width="507" height="20" 
+    isRemoveLineWhenBlank="true" backcolor="#FFCC99" uuid="122eb7b3-e2bf-49eb-859d-4c29bfd6882e"/&gt;
+  &lt;subreportParameter name="net.sf.jasperreports.json.date.pattern"&gt;
+    &lt;subreportParameterExpression&gt;&lt;![CDATA[$P{net.sf.jasperreports.json.date.pattern}]] &gt;&lt;/subreportParameterExpression&gt;
+  &lt;/subreportParameter&gt;
+  &lt;subreportParameter name="net.sf.jasperreports.json.number.pattern"&gt;
+    &lt;subreportParameterExpression&gt;&lt;![CDATA[$P{net.sf.jasperreports.json.number.pattern}]] &gt;&lt;/subreportParameterExpression&gt;
+  &lt;/subreportParameter&gt;
+  &lt;subreportParameter name="JSON_LOCALE"&gt;
+    &lt;subreportParameterExpression&gt;&lt;![CDATA[$P{JSON_LOCALE}]] &gt;&lt;/subreportParameterExpression&gt;
+  &lt;/subreportParameter&gt;
+  &lt;subreportParameter name="CustomerID"&gt;
+    &lt;subreportParameterExpression&gt;&lt;![CDATA[$F{CustomerID}]] &gt;&lt;/subreportParameterExpression&gt;
+  &lt;/subreportParameter&gt;
+  &lt;subreportParameter name="net.sf.jasperreports.json.source"&gt;
+    &lt;subreportParameterExpression&gt;&lt;![CDATA["data/northwind.json"]] &gt;&lt;/subreportParameterExpression&gt;
+  &lt;/subreportParameter&gt;
+  &lt;subreportExpression&gt;&lt;![CDATA["JsonOrdersReport.jasper"]] &gt;&lt;/subreportExpression&gt;
+&lt;/subreport&gt;
+</pre>
+The <span class="code"><code>CustomerID</code></span> parameter is required in order to filter data in the subreport.
+<br>
+Next, in the <span class="code"><code>reports/JsonOrdersReport.jrxml</code></span> file one can see a parametrized query. All orders related to a given <span class="code"><code>CustomerID</code></span> 
+are retrieved:
+<pre>
+&lt;queryString language="json"&gt;
+  &lt;![CDATA[Northwind.Orders(CustomerID == $P{CustomerID})]] &gt;
+&lt;/queryString&gt;</pre>
+From each order we collect the following properties:
+<pre>
+&lt;field name="Id" class="java.lang.String"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[OrderID]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;
+&lt;field name="OrderDate" class="java.util.Date"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[OrderDate]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;
+&lt;field name="ShipCity" class="java.lang.String"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[ShipCity]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;
+&lt;field name="Freight" class="java.lang.Float"&gt;
+  &lt;fieldDescription&gt;&lt;![CDATA[Freight]] &gt;&lt;/fieldDescription&gt;
+&lt;/field&gt;</pre>
+
+<b>Running the Sample</b>
+
+<br>
+
+<br>
+Running the sample requires the <a href="http://ant.apache.org/" target="_blank" class="element">Apache Ant</a> library. Make sure that <span class="code"><code>ant</code></span> is already installed on your system (version 1.5 or later).
+<br>
+In a command prompt/terminal window set the current folder to <span class="code"><code>demo/samples/jsondatasource</code></span> within the JasperReports source project and run the <span class="code"><code>&gt; ant test view</code></span> command.
+<br>
+It will generate all supported document types containing the sample report in the <span class="code"><code>demo/samples/jsondatasource/build/reports</code></span> directory. 
+<br>
+Then the report will open in the JasperReports internal viewer.
+	</span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td>
+<hr size="1">
+</td>
+</tr>
+<tr>
+<td align="center"><span class="copy">&copy; 2001-<script language="javascript">document.write((new Date()).getFullYear())</script> TIBCO Software Inc. <a href="http://www.jaspersoft.com" target="_blank" class="copy">www.jaspersoft.com</a></span></td>
+</tr>
+</table>
+</body>
+</html>

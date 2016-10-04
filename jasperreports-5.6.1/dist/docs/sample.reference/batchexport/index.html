@@ -1,0 +1,629 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://jasperreports.sourceforge.net/jasperreports">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JasperReports 5.6.1 - Batch Export Sample</title>
+<style type="text/css">
+.title {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.toc {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.name {
+	font-family: Courier New, Courier, serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.label {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.description {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.value {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.element {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.attribute {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.code {
+	font-family: Courier New, Courier, serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.copy {
+	font-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: #000000;
+}
+
+.subtitle {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: bold;
+	text-decoration: none;
+	color: inherit;
+}
+
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<a name="top"></a>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td colspan="2" align="right"><span class="element"><a href="../../JasperReports-Ultimate-Guide-3.pdf">JasperReports Ultimate Guide</a> - <a href="../../sample.reference.html">Sample Reference</a> - <a href="../../schema.reference.html">Schema Reference</a> - <a href="../../config.reference.html">Configuration Reference</a> - <a href="http://jasperreports.sourceforge.net/api/index.html">API (Javadoc)</a></span>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+<tr valign="middle">
+<td nowrap="true"><span class="title">JasperReports - Batch Export Sample (version 5.6.1)</span></td><td align="right"><img src="../../resources/jasperreports.png" border="0"></td>
+</tr>
+<tr>
+<td colspan="2">
+<hr size="1">
+</td>
+</tr>
+</table>
+<br>
+<span class="description"><span class="description">Shows how multiple reports could be concatenated during export.</span></span>
+<br>
+<br>
+<span class="element"><a href="http://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%205.6.1/jasperreports-5.6.1-project.zip/download" target="_blank">Download All Sample Source Files</a></span>
+<br>
+<span class="element"><a href="http://code.jaspersoft.com/svn/repos/jasperreports/tags/jr-5-6-1/jasperreports/demo/samples/batchexport/" target="_blank">Browse Sample Source Files on SVN</a></span>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 20px;">
+<br>
+</td><td>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"><span class="label">Main Features in This Sample</span></td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td><span class="element"><a href="#batchexport">Exporting Multiple Reports into a Single Output File (Batch Export)</a></span></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td><img src="../../resources/px.gif" border="0" width="20" height="1"></td><td width="80%">
+<br>
+</td><td width="20%">
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="6" align="right"><a name="batchexport"></a><a href="#top" class="toc">top</a></td>
+</tr>
+<tr>
+<td colspan="6">
+<hr size="1">
+</td>
+</tr>
+<tr valign="top">
+<td><img src="../../resources/jr-16x16.png" border="0"></td><td colspan="4"><span class="name">Exporting Multiple Reports into a Single Output File (Batch Export)</span></td><td align="right"><span class="copy">Documented by 
+	<a href="mailto:shertage@users.sourceforge.net" class="copy">Sanda Zaharia</a></span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td nowrap="true"><span class="label">Description / Goal</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">
+Several reports can be exported together to form a single resulting document.
+    </span></td>
+</tr>
+<tr valign="top">
+<td>
+<br>
+</td><td colspan="1"><span class="label">Since</span></td><td>
+<br>
+</td><td colspan="3"><span class="description">0.6.0</span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td><td colspan="5"><span class="description">
+<b>Exporter Input - API Overview</b>
+
+<br>
+
+<br>
+Once generated, a <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object may be 
+exported to various output formats such as PDF, HTML, XML, CSV, RTF, Excel, MSWord, PPTX, etc. 
+The JasperReports library includes a builtin exporter class for each output format enumerated here. 
+An exporter should be able to handle a wide range of report sources, along with their specific export configuration settings. 
+In order to perform the export, exporters require some specific input data:
+<ol>
+
+<li>a single <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> or a list 
+of <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> objects to be exported at a time; these objects may:
+<ul>
+
+<li>be in-memory objects</li>
+
+<li>come from the network through an input stream</li>
+
+<li>be loaded from files on disk</li>
+
+</ul>
+
+</li>
+
+<li>a set of export configuration settings to be applied either globally or per each report in the list</li>
+
+</ol>
+
+<br>
+Exporter builtin implementations acquire input data based on methods inherited from their  
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRAbstractExporter.html" target="_blank">JRAbstractExporter</a></span> super class. When extending the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRAbstractExporter.html" target="_blank">JRAbstractExporter</a></span> class, one can reuse the 
+<ul> 
+
+<li>
+<span class="code"><code>public void setExporterInput(ExporterInput exporterInput)</code></span>
+</li>
+
+</ul>
+method to deal with the report sources and export configuration settings.
+<br>
+As shown in the method signature, all we need is an <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInput.html" target="_blank">ExporterInput</a></span> object. 
+This object must implement the 
+<ul> 
+
+<li>
+<span class="code"><code>public List&lt;ExporterInputItem&gt; getItems()</code></span>
+</li> 
+
+</ul>
+method in order to retrieve a list of 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> objects. Each 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> in the list contains a single 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object along with its related export 
+configuration settings. Methods in the <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> interface are:
+<ul>
+
+<li>
+<span class="code"><code>public JasperPrint getJasperPrint()</code></span> - return the <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object</li>
+
+<li>
+<span class="code"><code>public ReportExportConfiguration getConfiguration()</code></span> - return export configuration settings to be applied for the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object</li>
+
+</ul>
+Global configuration settings per exporter can be configured using the 
+<ul> 
+
+<li>
+<span class="code"><code>public void setConfiguration(C configuration)</code></span>
+</li>
+
+</ul>
+method in the <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRAbstractExporter.html" target="_blank">JRAbstractExporter</a></span> class. This method accepts an 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterConfiguration.html" target="_blank">ExporterConfiguration</a></span> object that contain common export settings available for the 
+exporter itself; they do not depend on particular reports and will be applied globally during the export. An example of global setting is the use of custom 
+color palette in the Excel output. This is a global setting for the Excel app itself, rather than a report setting, so it should be set globally per export.    
+<br>
+
+<br>
+Another way to provide configuration settings globally is to use the overloaded 
+<ul> 
+
+<li>
+<span class="code"><code>public void setConfiguration(RC configuration)</code></span>
+</li>
+
+</ul>
+method in the <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JRAbstractExporter.html" target="_blank">JRAbstractExporter</a></span> class. It requires a 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ReportExportConfiguration.html" target="_blank">ReportExportConfiguration</a></span> object. This object contains common report-specific 
+export settings and will be applied during the report per each report in the list. 
+<br>
+
+<br>
+
+<b>Builtin implementations</b>
+
+<br>
+
+<br>
+Below is a list of the builtin implementations for the exporter input APIs:
+<ol>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInput.html" target="_blank">ExporterInput</a></span> interface:
+<ul>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleExporterInput.html" target="_blank">SimpleExporterInput</a></span> class</li>
+
+</ul>
+
+<br>
+
+<br>
+
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> interface:
+<ul>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleExporterInputItem.html" target="_blank">SimpleExporterInputItem</a></span> class</li>
+
+</ul>
+
+<br>
+
+<br>
+
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterConfiguration.html" target="_blank">ExporterConfiguration</a></span> interface:
+<ul>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleCsvExporterConfiguration.html" target="_blank">SimpleCsvExporterConfiguration</a></span> class - global setting for the CSV export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleCsvMetadataExporterConfiguration.html" target="_blank">SimpleCsvMetadataExporterConfiguration</a></span> class - global setting for the CSV metadata export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleDocxExporterConfiguration.html" target="_blank">SimpleDocxExporterConfiguration</a></span> class - global setting for the DOCX export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleGraphics2DExporterConfiguration.html" target="_blank">SimpleGraphics2DExporterConfiguration</a></span> - global setting for the Graphics2D export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleHtmlExporterConfiguration.html" target="_blank">SimpleHtmlExporterConfiguration</a></span> class - global setting for the HTML export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleJsonExporterConfiguration.html" target="_blank">SimpleJsonExporterConfiguration</a></span> class - global setting for the JSON export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleOdsExporterConfiguration.html" target="_blank">SimpleOdsExporterConfiguration</a></span> class - global setting for the ODS export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleOdtExporterConfiguration.html" target="_blank">SimpleOdtExporterConfiguration</a></span> class - global setting for the ODT export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePdfExporterConfiguration.html" target="_blank">SimplePdfExporterConfiguration</a></span> class - global setting for the PDF export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePptxExporterConfiguration.html" target="_blank">SimplePptxExporterConfiguration</a></span> class - global setting for the PPTX export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePrintServiceExporterConfiguration.html" target="_blank">SimplePrintServiceExporterConfiguration</a></span> class - global setting for the PrintService export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleRtfExporterConfiguration.html" target="_blank">SimpleRtfExporterConfiguration</a></span> class - global setting for the RTF export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleTextExporterConfiguration.html" target="_blank">SimpleTextExporterConfiguration</a></span> class - global setting for the Text export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsExporterConfiguration.html" target="_blank">SimpleXlsExporterConfiguration</a></span> class - global setting for the XLS export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsMetadataExporterConfiguration.html" target="_blank">SimpleXlsMetadataExporterConfiguration</a></span> class - global setting for the XLS metadata export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsxExporterConfiguration.html" target="_blank">SimpleXlsxExporterConfiguration</a></span> class - global setting for the XLSX export</li>
+
+</ul>
+
+<br>
+
+<br>
+
+</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ReportExportConfiguration.html" target="_blank">ReportExportConfiguration</a></span> interface:
+<ul>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleCsvExporterConfiguration.html" target="_blank">SimpleCsvReportConfiguration</a></span> class - report setting for the CSV export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleCsvMetadataReportConfiguration.html" target="_blank">SimpleCsvMetadataReportConfiguration</a></span> class - report setting for the CSV metadata export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleDocxReportConfiguration.html" target="_blank">SimpleDocxReportConfiguration</a></span> class - report setting for the DOCX export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleGraphics2DReportConfiguration.html" target="_blank">SimpleGraphics2DReportConfiguration</a></span> class - report setting for the Graphics2D export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleHtmlReportConfiguration.html" target="_blank">SimpleHtmlReportConfiguration</a></span> class - report setting for the HTML export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleJsonReportConfiguration.html" target="_blank">SimpleJsonReportConfiguration</a></span> class - report setting for the JSON export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleOdsReportConfiguration.html" target="_blank">SimpleOdsReportConfiguration</a></span> class - report setting for the ODS export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleOdtReportConfiguration.html" target="_blank">SimpleOdtReportConfiguration</a></span> class - report setting for the ODT export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePdfReportConfiguration.html" target="_blank">SimplePdfReportConfiguration</a></span> class - report setting for the PDF export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePptxReportConfiguration.html" target="_blank">SimplePptxReportConfiguration</a></span> class - report setting for the PPTX export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePrintServiceReportConfiguration.html" target="_blank">SimplePrintServiceReportConfiguration</a></span> class - report setting for the PrintService export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleRtfReportConfiguration.html" target="_blank">SimpleRtfReportConfiguration</a></span> class - report setting for the RTF export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleTextReportConfiguration.html" target="_blank">SimpleTextReportConfiguration</a></span> class - report setting for the Text export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsReportConfiguration.html" target="_blank">SimpleXlsReportConfiguration</a></span> class - report setting for the XLS export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsMetadataReportConfiguration.html" target="_blank">SimpleXlsMetadataReportConfiguration</a></span> class - report setting for the XLS metadata export</li>
+
+<li>
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsxReportConfiguration.html" target="_blank">SimpleXlsxReportConfiguration</a></span> class - report setting for the XLSX export</li>
+
+</ul>
+
+</li>
+
+</ol>
+
+<b>Batch Mode Export</b>
+
+<br>
+
+<br>
+The first thing an exporter needs to know is whether it is acting on a single <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> 
+report or on a list with several JasperPrint objects. 
+<br>
+Exporting multiple reports to a single resulting document is called batch mode exporting. 
+<br>
+Not all exporters can work in batch mode, but those that do first look into the exporter input data to see whether a list of several 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> objects has been 
+supplied to them. If so, the exporter loops through this list of reports and produces a single document from them.
+<br> 
+If the exporters act on a single report, then they check whether a single <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object is supplied to 
+the exporter input data to be exported. As already shown, this object may be loaded from an input stream, an URL, 
+a file object, or a file name. If no <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> object is supplied, 
+then the exporter throws an exception telling that no input source was set for the export process.
+<br>
+
+<br>
+
+<b>Batch Mode Bookmarks</b>
+
+<br>
+
+<br>
+When several JasperPrint documents must be concatenated in the same PDF file by 
+batch export, you can introduce PDF bookmarks in the resulting PDF document to mark 
+the beginning of each individual document that was part of the initial document list. 
+<br>
+These bookmarks have the same name as the original JasperPrint document as 
+specified by the <span class="code"><code>jasperPrint.getName()</code></span> property. However, users can turn on and off 
+the creation of those bookmarks by using the following
+<pre>
+  SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+  configuration.setCreatingBatchModeBookmarks(true);  //or false, if needed
+  exporter.setConfiguration(configuration);</pre>
+export configuration setting. The exporter does not create such bookmarks by default. 
+<br>
+
+<br>
+
+<b>Code Samples</b>
+
+<br>
+
+<br>
+This sample illustrates how to deal with exporter input settings when multiple reports are exported in batch mode.
+<br>
+Looking into the <span class="code"><code>src/BatchExportApp.java</code></span> source file one can see that, first of all, 3 reports are filled to generate 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> objects:
+<pre>
+public void fill() throws JRException
+{
+  long start = System.currentTimeMillis();
+  
+  //first JasperPrint object is generated and saved as .jrprint object in the build/reports directory
+  JasperFillManager.fillReportToFile(
+    "build/reports/Report1.jasper",
+    null, 
+    new JREmptyDataSource(2)
+    );
+    
+  //second JasperPrint object is generated and saved as .jrprint object in the build/reports directory
+  JasperFillManager.fillReportToFile(
+    "build/reports/Report2.jasper",
+    null, 
+    new JREmptyDataSource(2)
+    );
+    
+  //third JasperPrint object is generated and saved as .jrprint object in the build/reports directory
+  JasperFillManager.fillReportToFile(
+    "build/reports/Report3.jasper",
+    null, 
+    new JREmptyDataSource(2)
+    );
+    
+  System.err.println("Filling time : " + (System.currentTimeMillis() - start));
+}</pre>
+Let's see now the batch export to the PDF output: 
+<pre>
+public void pdf() throws JRException
+{
+  long start = System.currentTimeMillis();
+  
+  List&lt;JasperPrint&gt; jasperPrintList = new ArrayList&lt;JasperPrint&gt;();
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report1.jrprint"));
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report2.jrprint"));
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report3.jrprint"));
+
+  JRPdfExporter exporter = new JRPdfExporter();
+
+  exporter.setExporterInput(SimpleExporterInput.getInstance(jasperPrintList));
+  exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("build/reports/BatchExportReport.pdf"));
+  SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+  configuration.setCreatingBatchModeBookmarks(true);
+  exporter.setConfiguration(configuration);
+
+  exporter.exportReport();
+
+  System.err.println("PDF creation time : " + (System.currentTimeMillis() - start));
+}</pre>
+One can see that a list of <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> objects is
+loaded from previously created <span class="code"><code>*.jrprint</code></span> files. The list is used to populate the exporter input data, using the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleExporterInput.html" target="_blank">SimpleExporterInput</a></span> builtin implementation:
+:
+<br>
+
+<br>
+
+<span class="code"><code>exporter.setExporterInput(SimpleExporterInput.getInstance(jasperPrintList));</code></span>
+
+<br>
+
+<br>
+Based on the list of <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/JasperPrint.html" target="_blank">JasperPrint</a></span> objects, the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleExporterInput.html" target="_blank">SimpleExporterInput</a></span> will create and save 
+a list of corresponding <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> objects.
+<br> 
+
+<br> 
+Next, a global configuration setting is supplied to the exporter, using the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimplePdfExporterConfiguration.html" target="_blank">SimplePdfExporterConfiguration</a></span> implementation. 
+This will instruct the exporter to take into account the batch export mode when creating  bookmarks.
+<pre>
+  SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+  configuration.setCreatingBatchModeBookmarks(true);
+  exporter.setConfiguration(configuration);</pre>
+Another example is the batch export to Excel 2007 (XLSX) output format:
+<pre>
+public void xlsx() throws JRException
+{
+  long start = System.currentTimeMillis();
+  List&lt;JasperPrint&gt; jasperPrintList = new ArrayList&lt;JasperPrint&gt;();
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report1.jrprint"));
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report2.jrprint"));
+  jasperPrintList.add((JasperPrint)JRLoader.loadObjectFromFile("build/reports/Report3.jrprint"));
+
+  JRXlsxExporter exporter = new JRXlsxExporter();
+
+  exporter.setExporterInput(SimpleExporterInput.getInstance(jasperPrintList));
+  exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("build/reports/BatchExportReport.xlsx"));
+  
+  SimpleXlsxReportConfiguration configuration = new SimpleXlsxReportConfiguration();
+  configuration.setOnePagePerSheet(false);
+  exporter.setConfiguration(configuration);
+
+  exporter.exportReport();
+
+  System.err.println("XLSX creation time : " + (System.currentTimeMillis() - start));
+}</pre>
+The main difference here is the global use of the 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/SimpleXlsxReportConfiguration.html" target="_blank">SimpleXlsxReportConfiguration</a></span> class, the 
+builtin implementation of the <span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ReportExportConfiguration.html" target="_blank">ReportExportConfiguration</a></span> 
+interface fot the XLSX output format:
+<pre>
+  SimpleXlsxReportConfiguration configuration = new SimpleXlsxReportConfiguration();
+  configuration.setOnePagePerSheet(false);
+  exporter.setConfiguration(configuration);</pre>
+This configuration setting may differ from report to report, but when it's set on the exporter like above, it means 
+that the same setting will be applied to al reports in the list. To have different settings per each report, we need to set a 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ReportExportConfiguration.html" target="_blank">ReportExportConfiguration</a></span> to each 
+<span class="element"><a href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/export/ExporterInputItem.html" target="_blank">ExporterInputItem</a></span> in the list.
+<br>
+
+<br>
+
+<b>Running the Sample</b>
+
+<br>
+
+<br>
+Running the sample requires the <a href="http://ant.apache.org/" target="_blank" class="element">Apache Ant</a> library. Make sure that <span class="code"><code>ant</code></span> is already installed on your system (version 1.5 or later).
+<br>
+In a command prompt/terminal window set the current folder to <span class="code"><code>demo/samples/batchexport</code></span> within the JasperReports source project and run the <span class="code"><code>&gt; ant test view</code></span> command.
+<br>
+It will generate all supported document types containing the sample report in the <span class="code"><code>demo/samples/batchexport/build/reports</code></span> directory. 
+<br>
+Then the report will open in the JasperReports internal viewer.
+    </span></td>
+</tr>
+<tr>
+<td colspan="6">
+<br>
+</td>
+</tr>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td>
+<hr size="1">
+</td>
+</tr>
+<tr>
+<td align="center"><span class="copy">&copy; 2001-<script language="javascript">document.write((new Date()).getFullYear())</script> TIBCO Software Inc. <a href="http://www.jaspersoft.com" target="_blank" class="copy">www.jaspersoft.com</a></span></td>
+</tr>
+</table>
+</body>
+</html>

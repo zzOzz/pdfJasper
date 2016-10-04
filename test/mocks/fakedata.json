@@ -1,0 +1,25 @@
+[{
+    "ID_CARTE_CUMUL" : "id",
+    "NO_INDIVIDU": "individu",
+    "TYPE_DE_CARTE": "typecarte",
+    "NOM_AFFICHAGE": "nom",
+    "PRENOM_AFFICHAGE": "prenom",
+    "D_NAISSANCE": "date_naissance",
+    "NUMERO_UNIQUE": "id_unique",
+    "MAIL": "mail",
+    "DATAS_PHOTO": "./src/reports/blank.jpg",
+    "CODE_BARRE": "j99999",
+    "ETABLISSEMENT": "Université de Lyon"
+}, {
+    "ID_CARTE_CUMUL": "id",
+    "NO_INDIVIDU": "individu",
+    "TYPE_DE_CARTE": "typecarte",
+    "NOM_AFFICHAGE": "nom",
+    "PRENOM_AFFICHAGE": "prenom",
+    "D_NAISSANCE": "date_naissance",
+    "NUMERO_UNIQUE": "id_unique",
+    "MAIL": "mail",
+    "DATAS_PHOTO": "./src/reports/blank.jpg",
+    "CODE_BARRE": "j99999",
+    "ETABLISSEMENT": "Universite de Lyon"
+}]
