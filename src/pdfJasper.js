@@ -206,7 +206,9 @@ export function getPDFReport (report) {
         var pdfBase64 = []
         for (const key in pdfArray) {
           pdfBase64.push('data:application/pdf;base64,' + pdfArray[key].toString('base64'))
-          extend(report.dataset[key], { pdfBase64: 'data:application/pdf;base64,' + pdfArray[key].toString('base64') })
+          if ( typeof report.dataset[key] !== 'undefined' ) {
+            extend(report.dataset[key], { pdfBase64: 'data:application/pdf;base64,' + pdfArray[key].toString('base64') })
+          }
         }
         console.log((report.dataset[0].pdfBase64 + ' ').length)
         // console.log(report.dataset[0].pdfBase64)
